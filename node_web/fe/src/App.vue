@@ -91,7 +91,14 @@ export default {
           icon: 'face',
           title: 'User',
           to: {
-            path: '/about'
+            path: '/user'
+          }
+        },
+        {
+          icon: 'mail',
+          title: 'REST',
+          to: {
+            path: '/REST'
           }
         }
       ],
