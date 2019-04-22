@@ -35,3 +35,26 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+const mongoose = require('mongoose');
+const User = require('./models/users')
+
+mongoose.connect('mongodb://localhost:27017/lemay', {useNewUrlParser: true},(arr) =>
+{
+  if(arr) return console.error(arr)
+  console.log('mongoose connect')
+}
+)
+
+
+
+// User.find().then(r => console.log(r)).catch(e => console.error(e))
+
+// User.updateOne({_id: '5cbd4de43ec63a01f65b8de4'}, { $set: { age: 27 } })
+// .then(r => {
+//   console.log(r)
+//   console.log('updated')
+//   return User.find()
+// })
+
+// .then(r => console.log(r)).catch(e => console.error(e))
