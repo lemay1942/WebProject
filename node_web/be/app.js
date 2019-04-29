@@ -40,10 +40,10 @@ const mongoose = require('mongoose');
 const User = require('./models/users')
 
 mongoose.connect('mongodb://localhost:27017/lemay', {useNewUrlParser: true},(arr) =>
-{
-  if(arr) return console.error(arr)
-  console.log('mongoose connect')
-}
+  {
+    if(arr) return console.error(arr)
+    console.log('mongoose connect')
+  }
 )
 
 

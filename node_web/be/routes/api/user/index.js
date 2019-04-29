@@ -44,15 +44,30 @@ router.post('/', (req, res, next) => {
   // res.send({ success: true, msg: 'post ok' })
 });
 
-router.put('/', (req, res, next) => {
-  console.log(req.query)
-  console.log(req.body)
-  res.send({ success: true, msg: 'put ok' })
+router.put('/:id', (req, res, next) => {
+  const id = req.params.id
+  const { name, age } = req.body
+  User.updateOne({ _id: id }, { $set: { name, age }})
+  .then(r => {
+    res.send({ success: true, msg: r})
+  })
+  .catch(e => {
+    res.send({ success: false, msg: e.message })
+  })
+  // console.log(req.query)
+  // console.log(req.body)
+  // res.send({ success: true, msg: 'put ok' })
 });
 
-router.delete('/', (req, res, next) => {
-  console.log(req.query)
-  console.log(req.body)
+router.delete('/:id', (req, res, next) => {
+  const id = req.params.id
+  User.deleteOne({_id: id})
+  .then(r => {
+    res.send({success: true, msg: r})
+  })
+  .catch(e => {
+    res.send({success: false, msg: e.message})
+  })
   res.send({ success: true, msg: 'del ok' })
 });
 

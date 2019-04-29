@@ -29,21 +29,20 @@
 <script>
 import axios from 'axios'
 export default {
-    data () {
-        return {
-            users: []
-        }
-    },
-    mounted() {
-        axios.get('http://localhost:3000/api/user')
-        .then((r) =>
-        {
-            this.users = r.data.users
-            console.log(r)
-        })
-        .catch((e) => {
-            console.error(e.message)
-        })
+  data () {
+    return {
+      users: []
     }
+  },
+  mounted () {
+    axios.get('http://localhost:3000/api/user')
+      .then((r) => {
+        this.users = r.data.users
+        console.log(r)
+      })
+      .catch((e) => {
+        console.error(e.message)
+      })
+  }
 }
 </script>
