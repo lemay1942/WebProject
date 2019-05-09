@@ -100,6 +100,13 @@ export default {
           to: {
             path: '/REST'
           }
+        },
+        {
+          icon: 'lock',
+          title: 'Login',
+          to: {
+            path: '/Login'
+          }
         }
       ],
       miniVariant: false,
