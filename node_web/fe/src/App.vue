@@ -107,6 +107,13 @@ export default {
           to: {
             path: '/Login'
           }
+        },
+        {
+          icon: 'edit',
+          title: 'Sign Up',
+          to: {
+            path: '/Signup'
+          }
         }
       ],
       miniVariant: false,

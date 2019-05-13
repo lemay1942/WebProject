@@ -36,6 +36,17 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
+const jwt = require('jsonwebtoken');
+const key = 'key'
+const token = jwt.sign({ id: 'genie', email: 'genie@geniesoft.io' }, key);
+console.log(token)
+
+const decoded = jwt.verify(token, key)
+console.log(decoded)
+
+console.log(new Date(decoded.iat * 1000).toLocaleString())
+
+
 const mongoose = require('mongoose');
 const User = require('./models/users')
 

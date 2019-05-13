@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SimpleSocketIO</title>
+  <style>
+    #text_box {
+      width: 620px;
+      height: 500px;
+    }
+    #name {
+      width: 100px;
+    }
+    #msg {
+      width: 350px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <textarea id="text_box"></textarea>
+  </div>
+  <div>
+  <form id="chating">
+    <div>
+    name : <input id="name" type="text">
+    message : <input id="msg" type="text">
+    <input type="button" value="send" onclick="send()" />
+  </div>
+  </form>
+</div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+    function send() {
+      socket.emit('receive', document.getElementById("name").value, document.getElementById("msg").value);
+      document.getElementById("msg").value="";
+    }
+    socket.on('client_receive', function (msg) {
+      document.getElementById("text_box").value += msg + "\n";
+    });
+  </script>
+</body>
+
+</html>
